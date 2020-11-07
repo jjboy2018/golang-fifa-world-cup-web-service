@@ -16,7 +16,7 @@ func ListWinners(res http.ResponseWriter, req *http.Request) {
 	year := req.URL.Query().Get("year")
 	if year == "" {
 		winners, err := data.ListAllJSON()
-		if err == nil {
+		if err != nil {
 			res.WriteHeader(http.StatusInternalServerError)
 			return
 		}
